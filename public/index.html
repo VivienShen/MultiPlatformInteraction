@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Aframe Lesson 2</title>
+        <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    </head>
+    <body>
+        <!-- can't have A-Frame with A-scene -->
+        <a-scene>
+            <!--load and cache assets-->
+            <a-assets>
+                <!--<a-asset-item id="mars_model" src="assets/models/mars.glb" response-type="arraybuffer"></a-asset-item>-->
+                <a-asset-item id="helmet" src="assets/models/DamagedHelmet.glb" response-type="arraybuffer"></a-asset-item>
+            </a-assets>
+
+            
+            
+            <!-- add camera and lights explicitly -->
+            <a-entity position="0 1.2 0" camera wasd-controls look-controls></a-entity>
+            <a-entity postition="0 1.5 0" light="type:point; intensity:1.4;"></a-entity>
+
+            <!--Mars Info.text-->
+            <a-entity id="button" position="4.0 0.5 0" rotation="0 0 0">
+                <a-entity   position="0.65 0.0 0.01"
+                            rotation="0 0 0"
+                            scale="1 1 1"
+                            geometry="primitive: cylinder; height: 1; radius: 2"
+                            color= "#FFFF00">
+                </a-entity>  
+            </a-entity>
+            <a-entity id="plane" position="4.0 0 0" rotation="0 0 0">
+                <a-entity   position="0.65 0.0 0.01"
+                            rotation="90 0 0"
+                            scale="1 1 1"
+                            geometry="primitive: plane; height: 10; width: 10" material="side: double"
+                            color= "#00FF00">
+                </a-entity>  
+            </a-entity>
+            <a-entity id="helmet" position="2.0 0 0" rotation="0 0 0">
+                <a-entity   position="0.65 0.0 0.01"
+                            rotation="0 0 0"
+                            scale="1 1 1"
+                            geometry="primitive: plane; height: 10; width: 10" material="side: double"
+                            color= "#00FF00">
+                </a-entity>  
+            </a-entity>
+                     
+        </a-scene>
+    </body>
+</html>
