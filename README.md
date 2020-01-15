@@ -1,2 +1,2 @@
 # Lesson_Aframe_Interactions
-Testing our Git and WebVR
+Testing out Git and WebVR
