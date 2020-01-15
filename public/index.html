@@ -10,41 +10,19 @@
         <a-scene>
             <!--load and cache assets-->
             <a-assets>
-                <!--<a-asset-item id="mars_model" src="assets/models/mars.glb" response-type="arraybuffer"></a-asset-item>-->
-                <a-asset-item id="helmet" src="assets/models/DamagedHelmet.glb" response-type="arraybuffer"></a-asset-item>
+                <!--always make sure to use response type on .glb and sound files as aframe always tries to parse as JSON-->
+                <a-asset-item id="helmet" crossorigin="anonymous" response-type="arraybuffer" src="assets/models/DamagedHelmet.glb"></a-asset-item>
             </a-assets>
 
-            
-            
             <!-- add camera and lights explicitly -->
             <a-entity position="0 1.2 0" camera wasd-controls look-controls></a-entity>
             <a-entity postition="0 1.5 0" light="type:point; intensity:1.4;"></a-entity>
 
             <!--Mars Info.text-->
-            <a-entity id="button" position="4.0 0.5 0" rotation="0 0 0">
-                <a-entity   position="0.65 0.0 0.01"
-                            rotation="0 0 0"
-                            scale="1 1 1"
-                            geometry="primitive: cylinder; height: 1; radius: 2"
-                            color= "#FFFF00">
-                </a-entity>  
-            </a-entity>
-            <a-entity id="plane" position="4.0 0 0" rotation="0 0 0">
-                <a-entity   position="0.65 0.0 0.01"
-                            rotation="90 0 0"
-                            scale="1 1 1"
-                            geometry="primitive: plane; height: 10; width: 10" material="side: double"
-                            color= "#00FF00">
-                </a-entity>  
-            </a-entity>
-            <a-entity id="helmet" position="2.0 0 0" rotation="0 0 0">
-                <a-entity   position="0.65 0.0 0.01"
-                            rotation="0 0 0"
-                            scale="1 1 1"
-                            geometry="primitive: plane; height: 10; width: 10" material="side: double"
-                            color= "#00FF00">
-                </a-entity>  
-            </a-entity>
+            <a-entity id="button" geometry="primitive: cylinder; height: 1; radius: 2" material="color: #FFFF00"></a-entity> 
+            <a-entity id="plane" rotation="-90 0 0" geometry="primitive: plane; height: 10; width: 10" material="color:rgb(255 200 100)"></a-entity>  
+
+            <a-entity id="helmet" gltf-model="#helmet"></a-entity>
                      
         </a-scene>
     </body>
