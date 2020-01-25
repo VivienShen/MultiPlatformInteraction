@@ -3,7 +3,7 @@ const app = express();                                 //initialize //express is
 const http = require('http');                          //go get it //http is already included like ofdrawcircle
 const server = http.createServer(app);                 //initialize
 
-const PORT = 1111;                                     //which port is our context served by(default is 80, but don't keep it like that)
+const PORT = 8080;                                     //which port is our context served by(default is 80, but don't keep it like that)
 
 server.listen(PORT);                                   //start them up
 app.use(express.static( __dirname + '/public'));       //where is our default

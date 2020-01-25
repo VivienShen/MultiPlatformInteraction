@@ -1,7 +1,7 @@
 {
   "name": "lesson1-vr",
   "version": "1.0.0",
-  "description": "",
+  "description": "Testing out Git and WebVR",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,5 +10,13 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VivienShen/Lesson_Aframe_Interactions.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VivienShen/Lesson_Aframe_Interactions/issues"
+  },
+  "homepage": "https://github.com/VivienShen/Lesson_Aframe_Interactions#readme"
 }
