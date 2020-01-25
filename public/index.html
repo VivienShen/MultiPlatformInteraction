@@ -5,6 +5,7 @@
         <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
         <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
         <script src="js/create-lego-y-component.js"></script>
+        <script src="js/delete-lego-y-component.js"></script>
     </head>
     <body>
         <!-- can't have A-Frame with A-scene -->
@@ -19,8 +20,8 @@
             <a-entity environment="preset: forest"></a-entity>
 
             <!--State Info.text-->
-            <a-entity id="plane" position="0 0.1 -2.0" rotation="-90 0 0" geometry="primitive: plane; height: 13; width: 10" material="src: #plate2"></a-entity> 
-            <a-entity id="button" class="clickable" create-lego-component="" position="0 0.2 0" geometry="primitive: cylinder; height: 0.1; radius: 0.4" material="color:rgb(255, 200, 100)"></a-entity> 
+            <a-entity id="plane" position="0 0.1 -2.0" rotation="-90 0 0" geometry="primitive: plane; height: 14; width: 9" material="src: #plate2"></a-entity> 
+            <a-entity id="button" class="clickable" create-lego-y-component="" position="0 0.2 0" geometry="primitive: cylinder; height: 0.1; radius: 0.4" material="color:rgb(255, 200, 100)"></a-entity> 
             
             <!--adding camera manually so we add a cursor component to it-->
             <a-entity position="0 2 2" camera look-controls wasd-controls>
