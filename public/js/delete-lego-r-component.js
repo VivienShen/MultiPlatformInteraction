@@ -1,6 +1,6 @@
 'use strict'
 
-AFRAME.registerComponent('delete-lego-y-component', {
+AFRAME.registerComponent('delete-lego-r-component', {
     schema: {},
     init : function() {
         const Context_AF = this; //refers to "this" component
