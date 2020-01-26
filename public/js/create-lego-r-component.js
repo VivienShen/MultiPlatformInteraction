@@ -36,7 +36,7 @@ AFRAME.registerComponent('create-lego-r-component', {
         lego2Elem.setAttribute('delete-lego-r-component', {});
 
         //random tranform
-        lego2Elem.setAttribute('position', {x:(Math.random() * 6.0) - 2.0, y:0.1, z:-1.0 - (Math.random() * 4.0)}); //random x around axis and random z behind button
+        lego2Elem.setAttribute('position', {x:(Math.random() * 8.0) - 0, y:0.1, z:-1.0 - (Math.random() * 6.0)}); //random x around axis and random z behind button
         //const randScale = 0.2 + (Math.random() * 0.8);
         lego2Elem.setAttribute('scale', {x:0.5, y:0.5, z:0.5});  //scale
         lego2Elem.setAttribute('rotation', {x:0, y:Math.random() * 360.0, z:0});   //random y rotation

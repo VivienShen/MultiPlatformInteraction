@@ -9,7 +9,8 @@
         <script src="js/create-lego-r-component.js"></script>
         <script src="js/delete-lego-r-component.js"></script>
         <!-- physics and other extras -->
-        <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+        <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.0/dist/aframe-extras.min.js"></script>
+        <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
     </head>
     <body>
         <!-- can't have A-Frame with A-scene -->
@@ -22,21 +23,21 @@
             </a-assets>
              
             <!--Environment-->
-            <a-entity environment></a-entity>
+            <a-entity environment= "preset: forest"></a-entity>
 
             <!--State Info.text-->
             <a-entity id="plane1" position="-4.4 0.1 -2.0" rotation="-90 0 0" geometry="primitive: plane; height: 14; width: 9" material="src: #plate" static-body></a-entity> 
             <a-entity id="plane2" position="4.4 0.1 -2.0" rotation="-90 0 0" geometry="primitive: plane; height: 14; width: 9" material="src: #plate2" static-body></a-entity> 
-            <a-entity id="wall1" position="0 0.1 -9.0" rotation="0 0 0" geometry="primitive: plane; height: 5; width: 18" material="color:rgb(0, 0, 0)"></a-entity> -->
-            <a-entity id="wall1" position="0 0.1 -9.0" rotation="0 0 0" geometry="primitive: plane; height: 5; width: 18" material="color:rgb(0, 0, 0)"></a-entity> -->
-            <a-entity id="wall1" position="-9 0.1 -2.0" rotation="0 90 0" geometry="primitive: plane; height: 5; width: 14" material="color:rgb(0, 0, 0)"></a-entity> -->
-            <a-entity id="wall1" position="9 0.1 -2.0" rotation="0 -90 0" geometry="primitive: plane; height: 5; width: 14" material="color:rgb(0, 0, 0)"></a-entity> -->
-            <a-entity id="button" class="clickable" create-lego-y-component="" position="-2.5 0.3 0" geometry="primitive: cylinder; height: 0.1; radius: 0.4" material="color:rgb(255, 200, 80)"></a-entity>
-            <a-entity id="button2" class="clickable" create-lego-r-component="" position="2.5 0.3 0" geometry="primitive: cylinder; height: 0.1; radius: 0.4" material="color:rgb(255, 50, 50)"></a-entity> 
+            <a-entity id="wall1" position="0 0.1 -9.0" rotation="0 0 0" geometry="primitive: plane; height: 5; width: 18" material="color:rgb(255, 255, 255)" static-body></a-entity> 
+            <a-entity id="wall1" position="0 0.1 5.0" rotation="0 180 0" geometry="primitive: plane; height: 5; width: 18" material="color:rgb(255, 255, 255)" static-body></a-entity> 
+            <a-entity id="wall1" position="-8.9 0.1 -2.0" rotation="0 90 0" geometry="primitive: plane; height: 5; width: 14" material="color:rgb(255), 255, 255)" static-body></a-entity> 
+            <a-entity id="wall1" position="8.9 0.1 -2.0" rotation="0 -90 0" geometry="primitive: plane; height: 5; width: 14" material="color:rgb(255, 255, 255)" static-body></a-entity> 
+            <a-entity id="button" class="clickable" create-lego-y-component="" position="-2.5 0.3 0" geometry="primitive: cylinder; height: 0.1; radius: 0.4" material="color:rgb(255, 200, 80)" static-body></a-entity>
+            <a-entity id="button2" class="clickable" create-lego-r-component="" position="2.5 0.3 0" geometry="primitive: cylinder; height: 0.1; radius: 0.4" material="color:rgb(255, 50, 50)" static-body></a-entity> 
             
              
             <!--adding camera manually so we add a cursor component to it-->
-            <a-entity position="0 2 2" camera look-controls wasd-controls>
+            <a-entity position="0 2 2" camera look-controls wasd-controls kinema-body>
                 <!--cursor allows us to interact with objects. Add a raycaster and set constraints too to increase performance. "object" refers to which entities will trigger the raycaster. E.g. set objects to the classname .clickable to only trigger entities with clickable as a class-->
                 <a-entity cursor="rayOrigin:mouse;"
                           raycaster="far:20; interval:100; objects:.clickable"

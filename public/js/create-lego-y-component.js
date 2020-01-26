@@ -22,7 +22,6 @@ AFRAME.registerComponent('create-lego-y-component', {
         Context_AF.el.addEventListener('mouseleave', function(event){
             Context_AF.el.object3D.scale.set(1.0, 1.0, 1.0);
         });
-        
     },
     //custom function for creating creating random lego
     createLego1 : function (){
@@ -36,8 +35,8 @@ AFRAME.registerComponent('create-lego-y-component', {
         lego1Elem.setAttribute('delete-lego-y-component', {});
 
         //random tranform
-        lego1Elem.setAttribute('position', {x:(Math.random() * 6.0) - 5.0, y:0.1, z:-1.0 - (Math.random() * 4.0)}); //random x around axis and random z behind button
-        //const randScale = 0.2 + (Math.random() * 0.8);
+        lego1Elem.setAttribute('position', {x:(Math.random() * 8.0) - 7.0, y:0.1, z:-1.0 - (Math.random() * 6.0)}); //random x around axis and random z behind button
+        //const randScale = 0.2 + (Math.random() * 0.8)
         lego1Elem.setAttribute('scale', {x:0.5, y:0.5, z:0.5});  //scale
         lego1Elem.setAttribute('rotation', {x:0, y:Math.random() * 360.0, z:0});   //random y rotation
 
