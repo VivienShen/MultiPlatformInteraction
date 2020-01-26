@@ -3,14 +3,13 @@
     <head>
         <title>Multi-Platform Interaction</title>
         <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
+        <script src="https://rawgit.com/Ctrl-Alt-Zen/aframe-mobile-controls/master/components/twoway-motion/twoway-motion.js"></script>
         <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
         <script src="js/create-lego-y-component.js"></script>
         <script src="js/delete-lego-y-component.js"></script>
         <script src="js/create-lego-r-component.js"></script>
         <script src="js/delete-lego-r-component.js"></script>
-        <!-- physics and other extras -->
-        <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.0/dist/aframe-extras.min.js"></script>
-        <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
+
     </head>
     <body>
         <!-- can't have A-Frame with A-scene -->
@@ -26,24 +25,27 @@
             <a-entity environment= "preset: forest"></a-entity>
 
             <!--State Info.text-->
-            <a-entity id="plane1" position="-4.4 0.1 -2.0" rotation="-90 0 0" geometry="primitive: plane; height: 14; width: 9" material="src: #plate" static-body></a-entity> 
-            <a-entity id="plane2" position="4.4 0.1 -2.0" rotation="-90 0 0" geometry="primitive: plane; height: 14; width: 9" material="src: #plate2" static-body></a-entity> 
-            <a-entity id="wall1" position="0 0.1 -9.0" rotation="0 0 0" geometry="primitive: plane; height: 5; width: 18" material="color:rgb(255, 255, 255)" static-body></a-entity> 
-            <a-entity id="wall1" position="0 0.1 5.0" rotation="0 180 0" geometry="primitive: plane; height: 5; width: 18" material="color:rgb(255, 255, 255)" static-body></a-entity> 
-            <a-entity id="wall1" position="-8.9 0.1 -2.0" rotation="0 90 0" geometry="primitive: plane; height: 5; width: 14" material="color:rgb(255), 255, 255)" static-body></a-entity> 
-            <a-entity id="wall1" position="8.9 0.1 -2.0" rotation="0 -90 0" geometry="primitive: plane; height: 5; width: 14" material="color:rgb(255, 255, 255)" static-body></a-entity> 
-            <a-entity id="button" class="clickable" create-lego-y-component="" position="-2.5 0.3 0" geometry="primitive: cylinder; height: 0.1; radius: 0.4" material="color:rgb(255, 200, 80)" static-body></a-entity>
-            <a-entity id="button2" class="clickable" create-lego-r-component="" position="2.5 0.3 0" geometry="primitive: cylinder; height: 0.1; radius: 0.4" material="color:rgb(255, 50, 50)" static-body></a-entity> 
+            <a-entity id="plane1" position="-4.4 0.1 -2.0" rotation="-90 0 0" geometry="primitive: plane; height: 14; width: 9" material="src: #plate" sound="src: assets/sounds/bgm.mp3; autoplay: true; loop: true; volume: 1.2"></a-entity> 
+            <a-entity id="plane2" position="4.4 0.1 -2.0" rotation="-90 0 0" geometry="primitive: plane; height: 14; width: 9" material="src: #plate2"></a-entity> 
+            <a-entity id="wall1" position="0 0.1 -9.0" rotation="0 0 0" geometry="primitive: plane; height: 5; width: 18" material="color:rgb(255, 255, 255)"></a-entity> 
+            <a-entity id="wall2" position="0 0.1 5.0" rotation="0 180 0" geometry="primitive: plane; height: 5; width: 18" material="color:rgb(255, 255, 255)"></a-entity> 
+            <a-entity id="wall3" position="-8.9 0.1 -2.0" rotation="0 90 0" geometry="primitive: plane; height: 5; width: 14" material="color:rgb(255, 255, 255)"></a-entity> 
+            <a-entity id="wall4" position="8.9 0.1 -2.0" rotation="0 -90 0" geometry="primitive: plane; height: 5; width: 14" material="color:rgb(255, 255, 255)"></a-entity> 
+            <a-entity id="button" class="clickable" create-lego-y-component="" position="-2.5 0.3 1" geometry="primitive: cylinder; height: 0.1; radius: 0.4" material="color:rgb(255, 200, 80)" sound="src: assets/sounds/click.mp3; on: click; volume: 1.5"></a-entity>
+            <a-entity id="button2" class="clickable" create-lego-r-component="" position="2.5 0.3 1" geometry="primitive: cylinder; height: 0.1; radius: 0.4" material="color:rgb(255, 50, 50)" sound="src: assets/sounds/click.mp3; on: click; volume: 1.5"></a-entity> 
+            <a-entity id="sphere" position= "5 0.1 -20" geometry="primitive: sphere; radius: 1" material="color:rgb(0, 100, 0)" sound="src: assets/sounds/forest.wav; autoplay: true; loop: true; volume: 1.5"></a-entity>
             
-             
+            <!--hovering text-->
+            <a-entity text="value: Click for red bricks;" position="2.8 0.5 1"></a-entity>
+            <a-entity text="value: Click for yellow bricks;" position="-2.25 0.5 1"></a-entity>
+
             <!--adding camera manually so we add a cursor component to it-->
-            <a-entity position="0 2 2" camera look-controls wasd-controls kinema-body>
+            <a-entity twoway-motion="speed: 35" position="0 2 3.5" camera look-controls wasd-controls>
                 <!--cursor allows us to interact with objects. Add a raycaster and set constraints too to increase performance. "object" refers to which entities will trigger the raycaster. E.g. set objects to the classname .clickable to only trigger entities with clickable as a class-->
                 <a-entity cursor="rayOrigin:mouse;"
                           raycaster="far:20; interval:100; objects:.clickable"
-                ></a-entity>
-            </a-entity>
-            
+                ></a-entity>  
+            </a-entity>  
         </a-scene>
     </body>
 </html>
